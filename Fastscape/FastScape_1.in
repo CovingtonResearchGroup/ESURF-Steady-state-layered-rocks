@@ -1,0 +1,83 @@
+Basic geometry
+
+nx = 3000
+ny = 3000
+xl = 100000.
+yl = 100000.
+
+Time stepping
+
+restart = 0
+dt      = 100
+nstep   = 60000
+nfreq   = 4000
+
+Number of threads/cores to use
+
+num_threads = 4
+
+Incision law
+
+law            = 2
+m              = 0.5
+n              = 1
+kf             = 1.5E-05
+strati_f1      = 0.83333
+strati_top1    = 10800
+strati_bottom1 = 11000
+strati_f2      = 0.83333
+strati_top2    = 11300
+strati_bottom2 = 11500
+strati_f3      = 0.83333
+strati_top3    = 11800
+strati_bottom3 = 12000
+strati_f4      = 0.83333
+strati_top4    = 12300
+strati_bottom4 = 12500
+strati_f5      = 0.83333
+strati_top5    = 12800
+strati_bottom5 = 13000
+strati_f6      = 0.83333
+strati_top6    = 13300
+strati_bottom6 = 13500
+strati_f7      = 0.83333
+strati_top7    = 13800
+strati_bottom7 = 14000
+strati_f8      = 0.83333
+strati_top8    = 14300
+strati_bottom8 = 14500
+strati_f9      = 0.83333
+strati_top9    = 14800
+strati_bottom9 = 15000
+
+Boundary conditions
+
+boundary_condition = 1111
+
+Precipitations
+
+precipitation_n  = 0
+precipitation_v1 = 1.000
+
+Uplift rate
+
+uplift_n  = 0
+uplift_v1 = 2.5E-03
+
+Initial topography
+
+initial_topography_n = 0
+intial_topography_v1 = 0.
+
+Plotting options
+
+plot_all    = 0
+plot_topo   = 1
+plot_DEM    = 3
+topo_min    = -100
+topo_max    = 2000
+plot_strati = 1
+strati_min  = 0.9
+strati_max  = 1
+vtk         = 0
+vex         = 40
