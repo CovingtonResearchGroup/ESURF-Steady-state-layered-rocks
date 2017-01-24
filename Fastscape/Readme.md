@@ -1,4 +1,4 @@
-These are the input files for the FastScape simulations run for Figure 10.
+These are the FastScape.in input files for the FastScape simulations run for Figure 10.
 
 FastScape_0.66.in - n=2/3 case
 
