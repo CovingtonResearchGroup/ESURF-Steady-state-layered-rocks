@@ -1,5 +1,5 @@
 '''
-Script to import *.dem files generated from FastScape
+Script to import *.dem files generated from FastScape and process channels
 '''
 from landlab.components.flow_routing.route_flow_dn import FlowRouter
 from landlab.plot import channel_profile as prf
@@ -21,21 +21,15 @@ def get_chi(grid, len_node_arrays, profile_IDs, links_to_flow_receiver, unit_are
         distances_upstream.append(numpy.array(data_store))
     return distances_upstream
 
-#Set m,n, and dimensions of DEM
-m = 0.3
-n = 1.
-nx = 3000
-ny = 3000
-cellsize=100 #meters
-cumulative_uplift = 0.
-def mk_profile(i):
-    print i
-    fle_name = i[4:-4]
-    print fle_name
-    t_stepnum = i[4:-4]
+######################################################
+# Function to process dem file (provide file name)  ##
+# and output pickle files of channel properties     ##
+######################################################
+def mk_profile(dem_name, m=0.5, n=1, nx=3000, ny=3000, cellsize=100, cumulative_uplift=0):
+    fle_name = dem_name[4:-4]
+    t_stepnum = dem_name[4:-4]
     if t_stepnum[0:1] == '0':
         t_stepnum = t_stepnum[1:]
-    dem_name = i
     dem_file = open(dem_name, 'rb')
     z = numpy.fromfile(dem_file, dtype='float32', count=nx*ny)
     dem_file.close()
@@ -62,13 +56,4 @@ def mk_profile(i):
     elev_obj = open("topo_elev.p",'wrb')
     pickle.dump(elev,elev_obj)
     dist_obj.close()
-
-#By default, script runs on all .dem files in a directory
-if __name__ == '__main__':
-    i = sorted(glob.glob('*.dem'))
-    pool_size = 2
-    pool = multiprocessing.Pool(processes=pool_size)
-    outputs = pool.map_async(mk_profile, i,50)
-    pool.close()
-    pool.join()	
 

@@ -1,3 +1,8 @@
+################################################################
+## This script documents the process to create                ##
+##  Figure 10, but will not run without correct file names    ##
+##  that link to outputs of DEMImport_v2 and Fastscape images ##
+################################################################
 from pylab import *
 import pickle
 matplotlib.use('Agg')
@@ -29,7 +34,7 @@ def theoreticalprofile(K1, K2, H1, H2, U, nlayers, unit_area = 1., m = 0.5, n = 
 
 #####################################################################
 #File names here will have to be changed to reflect names of desired
-# pickle files to process
+# pickle files to process, which are output from DEMImport_v2.py
 #####################################################################
 pids_neq1 = open('13/chan-ids_neq1.p','rb')
 profile_IDs_neq1 = pickle.load(pids_neq1)
